@@ -33,14 +33,15 @@ async function getProductData() {
 
 // ✅ Server Component (Automatically gets SSR data)
 export default async function ProductPage() {
-  const productData = await getProductData(); // Fetch SSR data
-
+  const response = await getProductData(); // Fetch SSR data
+  const productData = response;
   return (
     <div>
-      <Product />
-      {/* ✅ Render SSR data */}
       {productData ? (
-        <pre>{JSON.stringify(productData, null, 2)}</pre>
+        <div>
+          <Product {...productData} />
+          <pre>{JSON.stringify(productData, null, 2)}</pre>
+        </div>
       ) : (
         <p>Failed to load product data.</p>
       )}

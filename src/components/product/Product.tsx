@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect } from "react";
+import { Name } from "./StyledProduct";
 
 const Product: React.FC = () => {
   useEffect(() => {
@@ -14,8 +15,7 @@ const Product: React.FC = () => {
       method: "POST",
     });
   }, []);
-
-  return <h1>Product Component</h1>;
+  return <Name>Product Component</Name>;
 };
 
 export default Product;
